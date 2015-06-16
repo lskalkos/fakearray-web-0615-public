@@ -1,6 +1,5 @@
 require 'pry'
 class FakeArray < Array
-  attr_reader :entries
   # you'll need a splat in this class somewhere
 
 
@@ -12,6 +11,10 @@ class FakeArray < Array
     @entries[index]
   end
 
+  def []=(index, new_entry)
+    @entries[index] = new_entry
+  end
+
   def each
     @entries.each{|entry| yield entry}
   end
@@ -19,9 +22,6 @@ class FakeArray < Array
   def first
     @entries[0]
   end
-
-
-
 
 
 end
